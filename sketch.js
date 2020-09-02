@@ -21,6 +21,8 @@ var platformTemp;
 
 var start,startIMG;
 
+var restart,restartIMG;
+
 var gameOver, gameOverIMG;
 
 function preload(){
@@ -247,7 +249,11 @@ function draw() {
     
        gameOver.addImage("GameOver", gameOverIMG);
 
-       reset();
+       if(mousePressedOver(gameOverIMG)){
+        gameState = START;
+        
+        
+      }
     }
 
 
@@ -371,11 +377,5 @@ function goRight(){
   if(keyCode === 39){
     ball.velocityX = 3;
     ball.velocityY = -5;
-  }
-}
-
-function reset(){
-  if(mousePressedOver === gameOver){
-    gameState = START;
   }
 }
